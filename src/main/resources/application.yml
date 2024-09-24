@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: spring-boot-transaction
+  profiles: 
+    active: DEV
+  main:
+    #allow-bean-definition-overriding: true
+    banner-mode: console
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    hikari:
+      connection-timeout: 30000 
+      maximum-pool-size: 5 
+      minimum-idle: 2
+      max-lifetime: 18000
+    url: jdbc:postgresql://localhost:5432/spring-boot-transaction
+    username: postgres
+    password: thirumal
+
+server:
+    port: 8080
+    shutdown: graceful
+    error:
+      whitelabel:
+        enabled: false
+      include-message: always # REQUIRED FOR SENDING CUSTOM ERROR MESSAGE
+      include-stacktrace: never
+      include-binding-errors: always
+logging:
+    level:
+      root: INFO
+      '[org.springframework.web]': INFO
+      '[com.thirumal]': DEBUG
+    file:
+      path: logs
+      name: logs/spring-boot-transaction.log
+    logback: 
+      rollingpolicy: 
+        max-history: 10
+        max-file-size: 100MB
+        total-size-cap: 1GB
