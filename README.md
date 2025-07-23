@@ -17,9 +17,9 @@ The Transaction is used to keep our data `consistent` in the database.
 
 Spring’s `@Transactional` is responsible for transaction boundaries
 
-    * Starting a transaction before your method runs
-    * Committing it if the method completes successfully
-    * Rolling back if a runtime exception is thrown
+* Starting a transaction before your method runs
+* Committing it if the method completes successfully
+* Rolling back if a runtime exception is thrown
 
 ## How does Spring work internally?
 
