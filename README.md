@@ -79,8 +79,6 @@ If your method throws a checked exception, the transaction will not be rolled ba
 
 * Nested: It sounds so complicated, but we are just talking savepoints! → connection.setSavepoint()
 
-## Isolation
-
 
 ## Common Pitfall
 
