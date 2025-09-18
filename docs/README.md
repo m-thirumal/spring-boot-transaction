@@ -2,28 +2,7 @@
 
 A `transaction` is a sequence of multiple statements that must either `all succeed or all fail`. If one step fails, everything gets `rolled back`.
 
-The Transaction is used to keep our data `consistent` in the database.
-Client  →  Controller  →  Service (@Transactional)  →  AOP Proxy  
-                                          │
-                                          ▼
-                                 Transaction Manager
-                                  ┌───────────┐
-                                  │ Begin Tx  │
-                                  │ Isolation │
-                                  │ Propagate │
-                                  └───────────┘
-                                          │
-                                          ▼
-                                    Repository/DAO
-                                          │
-                                          ▼
-                                       Database
-                                          │
-                         ┌────────────────┴───────────────┐
-                         │ Commit (Success)   Rollback(X) │
-                         └────────────────┬───────────────┘
-                                          │
-                                      Response
+![Transaction](img/Transaction.drawio.png)
 
 ## ACID Properties
 

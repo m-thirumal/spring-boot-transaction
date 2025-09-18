@@ -23,3 +23,13 @@
 * Never: I’m going to cry if someone else started up a transaction → nothing to do with JDBC
 
 * Nested: It sounds so complicated, but we are just talking savepoints! → connection.setSavepoint()
+
+flowchart TD
+    A[Service A (Caller)] -->|Calls| B[Service B (Callee)]
+    B -->|REQUIRED<br/>Join or Create Tx| TM1[Tx Manager]
+    B -->|REQUIRES_NEW<br/>Always new Tx| TM2[Tx Manager]
+    B -->|MANDATORY<br/>Fail if no Tx| TM3[Tx Manager]
+    B -->|SUPPORTS<br/>Join if exists| TM4[Tx Manager]
+    B -->|NOT_SUPPORTED<br/>Suspend Tx| TM5[Tx Manager]
+    B -->|NEVER<br/>Fail if Tx exists| TM6[Tx Manager]
+    B -->|NESTED<br/>Run with Savepoint| TM7[Tx Manager]
